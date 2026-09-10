@@ -1,0 +1,88 @@
+{% doc %}
+  Il logotipo relis come testo vivo.
+
+  Il marchio e un wordmark: la parola relis, tutta minuscola, composta in
+  Open Sauce Sans 600. Il dettaglio da proteggere e che il punto della i
+  e un anello, non un cerchio pieno — lo disegna il font, non il CSS.
+
+  Testo vivo e non immagine: resta nitido a ogni dimensione e non c'e
+  nessun asset da mantenere. I PNG restano per favicon, email e social,
+  dove il testo non si puo usare.
+
+  Regole: sempre minuscolo, due soli colori (inchiostro su chiaro, crema
+  su scuro), nessuna ombra, nessun contorno. Il numero non entra nel
+  logotipo — Relis 42 si compone nel serif di pagina.
+{% enddoc %}
+
+{% liquid
+  assign testo = block.settings.text | default: shop.name | downcase
+  assign dimensione = block.settings.size | default: 26
+%}
+
+<div class="relis-wordmark-block" {{ block.shopify_attributes }}>
+  {%- if block.settings.link != blank -%}
+    <a
+      href="{{ block.settings.link }}"
+      class="rl-wordmark"
+      style="font-size: {{ dimensione }}px;{% if block.settings.color != blank %} color: {{ block.settings.color }};{% endif %}"
+    >
+      {{- testo -}}
+    </a>
+  {%- else -%}
+    <span
+      class="rl-wordmark"
+      style="font-size: {{ dimensione }}px;{% if block.settings.color != blank %} color: {{ block.settings.color }};{% endif %}"
+    >
+      {{- testo -}}
+    </span>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .relis-wordmark-block a.rl-wordmark {
+    text-decoration: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Logotipo",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Testo",
+      "info": "Sempre minuscolo. Se lo lasci vuoto prende il nome del negozio.",
+      "default": "relis"
+    },
+    {
+      "type": "range",
+      "id": "size",
+      "label": "Corpo",
+      "min": 18,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "info": "Minimo 18px: sotto quella soglia l'anello della i si chiude.",
+      "default": 26
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Colore",
+      "info": "Due soli colori: inchiostro su chiaro, crema su scuro."
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Collegamento"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logotipo"
+    }
+  ]
+}
+{% endschema %}

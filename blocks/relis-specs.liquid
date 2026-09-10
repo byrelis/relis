@@ -1,0 +1,82 @@
+{% doc %}
+  Tabella specifiche relis.
+
+  Una lista di descrizione: etichetta a sinistra, valore a destra, un
+  filetto fra le righe. I numeri sono tabular, cosi le cifre incolonnano.
+
+  I dati mancanti si dichiarano con un trattino lungo — mai 0,00, mai un
+  numero verosimile messo li per riempire. La Relis 42 e un prototipo:
+  misure, capacita, peso e prezzo non sono ancora decisi.
+{% enddoc %}
+
+<dl
+  class="rl-specs{% if block.settings.width == 'fill' %} rl-specs--fill{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  {% content_for 'blocks' %}
+</dl>
+
+{% stylesheet %}
+  .rl-specs--fill {
+    max-width: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Specifiche",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_relis-spec-row"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Larghezza",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Colonna di lettura"
+        },
+        {
+          "value": "fill",
+          "label": "Riempi"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specifiche",
+      "blocks": {
+        "riga-1": {
+          "type": "_relis-spec-row",
+          "settings": {
+            "label": "Dimensioni",
+            "value": "—"
+          }
+        },
+        "riga-2": {
+          "type": "_relis-spec-row",
+          "settings": {
+            "label": "Capacita",
+            "value": "—"
+          }
+        },
+        "riga-3": {
+          "type": "_relis-spec-row",
+          "settings": {
+            "label": "Peso",
+            "value": "—"
+          }
+        }
+      },
+      "block_order": ["riga-1", "riga-2", "riga-3"]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,33 @@
+{% doc %}
+  Una riga della tabella specifiche: etichetta e valore.
+
+  Il valore va a destra ed e tabular, cosi le cifre incolonnano fra righe.
+  Quando il dato non c'e si scrive un trattino lungo, non uno zero.
+{% enddoc %}
+
+<div class="rl-specs__row" {{ block.shopify_attributes }}>
+  <dt>{{ block.settings.label }}</dt>
+  <dd>{{ block.settings.value | default: '—' }}</dd>
+</div>
+
+{% schema %}
+{
+  "name": "Riga",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Etichetta",
+      "default": "Etichetta"
+    },
+    {
+      "type": "text",
+      "id": "value",
+      "label": "Valore",
+      "info": "Se il dato non e ancora deciso, lascia il trattino lungo —",
+      "default": "—"
+    }
+  ]
+}
+{% endschema %}

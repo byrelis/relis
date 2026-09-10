@@ -1,0 +1,803 @@
+/* ============================================================
+   relis — Cuoio e Carta
+   Layer di design system sopra Shopify Horizon.
+
+   Tre parti, in quest'ordine:
+     1. TOKEN    — i token del design system, fonte di verità
+     2. BRIDGE   — i token rimappati sui nomi di variabile di Horizon,
+                   così i componenti nativi del tema (bottoni, card,
+                   campi, header, cassetto) ereditano il design
+                   senza essere riscritti
+     3. CLASSI   — le classi pubbliche .rl-*, per le sezioni custom
+
+   Regole non negoziabili del sistema: zero ombre, angoli quasi retti,
+   tema chiaro unico, il colore non porta mai il significato da solo.
+   ============================================================ */
+
+/* ============================================================
+   1. TOKEN
+   ============================================================ */
+
+/* ── colore ─────────────────────────────────────────────────
+   Il marchio è MARRONE. Il beige è il fondo del tema chiaro,
+   non l'identità. Tema chiaro unico: nessun prefers-color-scheme. */
+:root {
+  /* marchio — cuoio ed espresso */
+  --brand-ink: #241a15; /* espresso — testo, header, sezioni piene */
+  --brand: #3b2a20; /* cuoio scuro — il colore del marchio */
+  --brand-hover: #241a15;
+  --brand-leather: #7a5a44; /* cuoio — icone, link secondari */
+  --brand-tan: #b79e88; /* decorativo — mai testo */
+  --brand-tint: #e8dbc7; /* velatura di marchio su chiaro */
+  --on-brand: #f1eadc;
+
+  /* neutri — beige */
+  --canvas: #f1eadc; /* fondo pagina */
+  --surface: #faf6ee; /* card: PIÙ CHIARA del fondo, si stacca senza ombra */
+  --surface-alt: #e7dfce; /* sezioni alternate */
+  --line: #ddd3c0;
+  --line-strong: #c8bca5;
+
+  /* testo su beige — tutti verificati AA */
+  --text: #241a15; /* 14.22 */
+  --text-secondary: #5c5149; /* 6.43 */
+  --text-muted: #6b6259; /* 4.99 */
+  --text-faint: #a79e93; /* 2.21 — MAI testo, solo decorativo */
+
+  /* superfici inchiostro — il marrone come campitura */
+  --ink: #241a15;
+  --ink-alt: #3b2a20;
+
+  /* colorazioni prodotto — NON token di interfaccia */
+  --way-brown: #3f2924;
+  --way-rose: #d5a3a1;
+  --way-ice: #8296ab;
+
+  /* messaggi di sistema — non appartengono al marchio */
+  --alert: #8a3328;
+  --confirm: #3f5c40;
+
+  /* alias semantici */
+  --bg-page: var(--canvas);
+  --bg-card: var(--surface);
+  --bg-section: var(--surface-alt);
+  --bg-section-ink: var(--ink);
+  --border-hairline: var(--line);
+  --border-field: var(--line-strong);
+  --action-fill: var(--brand);
+  --action-fill-hover: var(--brand-hover);
+  --action-on-fill: var(--on-brand);
+  --focus-ring: var(--brand-ink);
+}
+
+/* ── tipografia ─────────────────────────────────────────────
+   Due famiglie di sistema, due pesi ciascuna. Il mono è di servizio.
+   Il wordmark è marchio, non tipografia. */
+:root {
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --wordmark: "Open Sauce Sans", "Open Sauce One", Futura, "Century Gothic", system-ui, sans-serif;
+
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-wordmark: 600;
+
+  /* scala — dodici gradini nominati */
+  --fs-display: clamp(40px, 7vw, 76px); /* serif · solo hero e numeri di pagina */
+  --fs-h1: clamp(32px, 4.4vw, 48px); /* serif */
+  --fs-h2: clamp(26px, 2.6vw, 32px); /* serif */
+  --fs-h3: 22px; /* serif — il minimo del serif */
+  --fs-h4: 18px; /* sans 500 */
+  --fs-lead: 17px; /* sans 400 — apertura di paragrafo */
+  --fs-body: 15px; /* sans 400 */
+  --fs-body-sm: 13px; /* sans 400 */
+  --fs-price: 14px; /* sans 400 tabular */
+  --fs-button: 12px; /* sans 500 caps */
+  --fs-eyebrow: 11px; /* sans 500 caps molto spaziato */
+  --fs-micro: 10px; /* sans 500 caps — didascalie su foto, badge */
+
+  /* interlinee */
+  --lh-display: 1.02;
+  --lh-h1: 1.08;
+  --lh-h2: 1.15;
+  --lh-h3: 1.22;
+  --lh-tight: 1.3;
+  --lh-body: 1.6;
+  --lh-snug: 1.5;
+  --lh-flush: 1;
+
+  /* crenature */
+  --tr-display: -0.022em;
+  --tr-h1: -0.015em;
+  --tr-h2: -0.01em;
+  --tr-h3: -0.008em;
+  --tr-normal: 0;
+  --tr-button: 0.08em;
+  --tr-eyebrow: 0.14em;
+  --tr-caption: 0.18em; /* solo sopra fotografia */
+  --tr-wordmark: -0.01em;
+
+  /* misure di riga */
+  --measure-body: 34em;
+  --measure-lead: 28em;
+  --measure-title: 14em;
+  --measure-note: 46em;
+}
+
+/* ── spazio — base 4, undici gradini ───────────────────────── */
+:root {
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --s9: 96px;
+  --s10: 128px;
+  --s11: 160px;
+
+  --gap-inline: var(--s3);
+  --gap-stack: var(--s4);
+  --gap-group: var(--s5);
+  --gap-block: var(--s7);
+  --pad-card: var(--s4);
+  --pad-card-lg: var(--s5);
+  --pad-field: var(--s2);
+  --pad-button: 14px 28px; /* valore letterale: non è sulla scala */
+  --pad-button-sm: 10px 18px;
+}
+
+/* ── forma — angoli quasi retti, un filetto, zero ombre ───── */
+:root {
+  --r-button: 2px;
+  --r-card: 4px;
+  --r-image: 0; /* la fotografia è sempre a filo */
+  --r-field: 0; /* i campi sono a filetto, non a scatola */
+  --r-pill: 999px; /* solo pastiglie colorazione e bersagli tondi */
+  --rule: 1px;
+  --rule-accent: 2px;
+
+  --border-hair: var(--rule) solid var(--line);
+  --border-firm: var(--rule) solid var(--line-strong);
+  --border-ink: var(--rule) solid var(--text);
+
+  /* Nessuna ombra esiste in questo sistema. Il token c'è solo
+     perché qualcuno cercandolo trovi la regola invece del vuoto. */
+  --shadow: none;
+
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --focus-offset-field: 3px;
+  --tap-min: 44px;
+}
+
+/* ── griglia e layout ──────────────────────────────────────── */
+:root {
+  --container: 1440px;
+  --container-narrow: 960px;
+  --container-text: 34em;
+
+  --page-margin: 20px;
+  --page-margin-md: 40px;
+  --page-margin-lg: 64px;
+
+  --gutter: 24px;
+
+  --section-pad: 56px; /* mobile */
+  --section-pad-lg: 96px; /* desktop */
+
+  --header-h: 72px;
+  --header-h-sm: 60px;
+}
+
+@media (min-width: 760px) {
+  :root {
+    --page-margin: var(--page-margin-md);
+  }
+}
+
+@media (min-width: 1120px) {
+  :root {
+    --page-margin: var(--page-margin-lg);
+    --section-pad: var(--section-pad-lg);
+  }
+}
+
+/* ── movimento — conferma, non annuncia ────────────────────── */
+:root {
+  --ease: cubic-bezier(0.2, 0, 0, 1); /* standard — quasi tutto */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* entrata di pannelli e drawer */
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0); /* uscita */
+
+  --dur-fast: 160ms; /* colore, bordo, opacità di un controllo */
+  --dur: 240ms; /* dissolvenza fra colorazioni, apertura accordion */
+  --dur-slow: 600ms; /* movimento interno alla fotografia */
+  --dur-drawer: 320ms; /* carrello e menu */
+
+  --t-color: color var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+  --t-fade: opacity var(--dur) var(--ease);
+  --t-photo: transform var(--dur-slow) var(--ease);
+  --t-drawer: transform var(--dur-drawer) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur: 1ms;
+    --dur-slow: 1ms;
+    --dur-drawer: 1ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* ── immagini — quattro tagli, non uno di più ──────────────── */
+:root {
+  --photo-bg: #f3eee4; /* fondale scatti prodotto, mai bianco da e-commerce */
+
+  --ratio-product: 3/4;
+  --ratio-model: 4/5;
+  --ratio-editorial: 21/9;
+  --ratio-detail: 1/1;
+
+  /* velatura: il 52% inferiore, così l'eyebrow sta in basso a sinistra */
+  --veil: linear-gradient(to top, rgba(28, 20, 15, 0.44) 0%, rgba(28, 20, 15, 0) 52%);
+  --veil-strong: linear-gradient(to top, rgba(28, 20, 15, 0.62) 0%, rgba(28, 20, 15, 0) 64%);
+  --veil-height: 52%;
+
+  --photo-hover-scale: 1.03;
+
+  --caption-inset: var(--s3);
+  --caption-inset-lg: var(--s6);
+}
+
+/* ============================================================
+   2. BRIDGE — i token Relis sui nomi di Horizon
+
+   Horizon costruisce i suoi componenti su queste variabili.
+   Rimappandole qui, header, card, bottoni, campi, cassetto carrello e
+   checkout ereditano il design system senza toccare il markup del tema:
+   gli aggiornamenti da upstream continuano ad applicarsi puliti.
+   ============================================================ */
+
+:root {
+  /* Famiglie. Le quattro famiglie Relis non esistono nella libreria font
+     di Shopify, quindi il font_picker del tema non può servirle: si
+     caricano in snippets/relis-fonts.liquid e si sostituiscono qui alle
+     famiglie scelte nell'editor. */
+  --font-body--family: var(--sans);
+  --font-body--weight: var(--w-regular);
+  --font-subheading--family: var(--sans);
+  --font-subheading--weight: var(--w-medium);
+  --font-heading--family: var(--serif);
+  --font-heading--weight: var(--w-regular);
+  --font-accent--family: var(--mono);
+  --font-accent--weight: var(--w-regular);
+
+  /* Il serif Relis non va spaziato. */
+  --font-heading--spacing: var(--tr-h2);
+  --font-h1--spacing: var(--tr-h1);
+  --font-h2--spacing: var(--tr-h2);
+  --font-h3--spacing: var(--tr-h3);
+  --font-paragraph--spacing: var(--tr-normal);
+
+  /* Zero ombre, in nessun punto. Non è un'omissione, è una regola: se un
+     elemento ha bisogno di un'ombra per emergere, è nel posto sbagliato.
+     La profondità la fanno la card più chiara del fondo e il filetto 1px. */
+  --shadow-button: none;
+  --shadow-drawer: none;
+  --shadow-popover: none;
+  --shadow-blur: 0;
+
+  /* Forma */
+  --style-border-radius-buttons-primary: var(--r-button);
+  --style-border-radius-buttons-secondary: var(--r-button);
+  --style-border-radius-inputs: var(--r-field);
+  --style-border-radius-popover: var(--r-card);
+  --style-border-radius-xs: var(--r-button);
+  --style-border-radius-sm: var(--r-button);
+  --style-border-radius-md: var(--r-card);
+  --style-border-radius-lg: var(--r-card);
+  --style-border-radius-pills: var(--r-pill);
+  --style-border-width: var(--rule);
+
+  /* Fuoco: anello in famiglia, lo stacco lo fa il distacco. */
+  --focus-outline-width: var(--focus-width);
+  --focus-outline-offset: var(--focus-offset);
+
+  /* Movimento */
+  --animation-easing: var(--ease);
+  --animation-speed-fast: var(--dur-fast);
+  --animation-speed: var(--dur);
+  --animation-speed-medium: var(--dur);
+  --animation-speed-slow: var(--dur-slow);
+  --drawer-animation-speed: var(--dur-drawer);
+
+  /* Stati di magazzino. Ogni stato ha comunque la sua parola: il colore
+     non porta mai il significato da solo. */
+  --color-error: var(--alert);
+  --color-success: var(--confirm);
+  --color-instock: var(--confirm);
+  --color-lowstock: var(--brand-leather);
+  --color-outofstock: var(--text-muted);
+
+  /* Larghezza di pagina */
+  --wide-page-width: var(--container);
+}
+
+/* ── preset tipografici ─────────────────────────────────────
+   Horizon costruisce sette preset (paragraph, h1…h6) da altrettanti
+   menu nelle impostazioni. I menu offrono solo gradini fissi — 20, 24,
+   32 — mentre la scala relis è fluida e arriva a valori che lì non
+   esistono. Li ridichiariamo qui sulla scala vera: le impostazioni
+   restano come ripiego se questo foglio non carica.
+
+   La mappatura porta con sé la regola del sistema: h1-h3 sono serif,
+   da h4 in giù si passa al sans, perché il serif sotto i 22px perde il
+   disegno. E h6 diventa l'eyebrow, così il timbro è componibile
+   dall'editor tema senza scrivere CSS. */
+:root {
+  --font-paragraph--family: var(--sans);
+  --font-paragraph--weight: var(--w-regular);
+  --font-paragraph--size: var(--fs-body);
+  --font-paragraph--line-height: var(--lh-body);
+  --font-paragraph--letter-spacing: var(--tr-normal);
+  --font-paragraph--case: none;
+
+  --font-h1--family: var(--serif);
+  --font-h1--weight: var(--w-regular);
+  --font-h1--size: var(--fs-h1);
+  --font-h1--line-height: var(--lh-h1);
+  --font-h1--letter-spacing: var(--tr-h1);
+  --font-h1--case: none;
+
+  --font-h2--family: var(--serif);
+  --font-h2--weight: var(--w-regular);
+  --font-h2--size: var(--fs-h2);
+  --font-h2--line-height: var(--lh-h2);
+  --font-h2--letter-spacing: var(--tr-h2);
+  --font-h2--case: none;
+
+  /* Il minimo del serif. Sotto questa soglia non si scende. */
+  --font-h3--family: var(--serif);
+  --font-h3--weight: var(--w-regular);
+  --font-h3--size: var(--fs-h3);
+  --font-h3--line-height: var(--lh-h3);
+  --font-h3--letter-spacing: var(--tr-h3);
+  --font-h3--case: none;
+
+  --font-h4--family: var(--sans);
+  --font-h4--weight: var(--w-medium);
+  --font-h4--size: var(--fs-h4);
+  --font-h4--line-height: var(--lh-tight);
+  --font-h4--letter-spacing: var(--tr-normal);
+  --font-h4--case: none;
+
+  --font-h5--family: var(--sans);
+  --font-h5--weight: var(--w-medium);
+  --font-h5--size: var(--fs-body-sm);
+  --font-h5--line-height: var(--lh-snug);
+  --font-h5--letter-spacing: var(--tr-normal);
+  --font-h5--case: none;
+
+  /* h6 è l'eyebrow: maiuscoletto molto spaziato, mai un titolo. */
+  --font-h6--family: var(--sans);
+  --font-h6--weight: var(--w-medium);
+  --font-h6--size: var(--fs-eyebrow);
+  --font-h6--line-height: var(--lh-tight);
+  --font-h6--letter-spacing: var(--tr-eyebrow);
+  --font-h6--case: uppercase;
+}
+
+/* Lo scrim del cassetto: rgba(36,26,21,.36), senza sfocatura. È uno dei
+   due soli usi di trasparenza ammessi dal sistema. */
+:root {
+  --backdrop-color-rgb: 36, 26, 21;
+  --backdrop-opacity: 0.36;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Il serif non scende mai sotto i 22px: sotto quella soglia perde il
+   disegno. Da h4 in giù si passa al sans, come prescrive il sistema. */
+h1,
+.h1 {
+  font-family: var(--serif);
+  font-weight: var(--w-regular);
+  letter-spacing: var(--tr-h1);
+  line-height: var(--lh-h1);
+}
+
+h2,
+.h2 {
+  font-family: var(--serif);
+  font-weight: var(--w-regular);
+  letter-spacing: var(--tr-h2);
+  line-height: var(--lh-h2);
+}
+
+h3,
+.h3 {
+  font-family: var(--serif);
+  font-weight: var(--w-regular);
+  letter-spacing: var(--tr-h3);
+  line-height: var(--lh-h3);
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--sans);
+  font-weight: var(--w-medium);
+  line-height: var(--lh-tight);
+}
+
+/* Hover: solo cambio di tono. Mai transform, mai ombra, mai
+   sollevamento — Horizon offre "lift" fra gli effetti di card, qui è
+   spento nelle impostazioni e neutralizzato qui per sicurezza. */
+.card-hover-effect-lift .resource-card:hover,
+.card-hover-effect-lift .product-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ============================================================
+   3. CLASSI — le classi pubbliche del sistema
+
+   Le usano le sezioni Relis custom. I nomi sono quelli del design
+   system, così una schermata del canvas si porta qui quasi alla lettera.
+   ============================================================ */
+
+/* ── scope inchiostro ───────────────────────────────────────
+   Da applicare a qualsiasi blocco su marrone pieno. Rimappa i token di
+   testo e filetto: i componenti dentro non sanno di essere su fondo
+   scuro e continuano a funzionare. Non è un tema scuro, è una scelta
+   di composizione. */
+.on-ink {
+  background: var(--ink);
+  --text: #f1eadc;
+  --text-secondary: #c8bca5;
+  --text-muted: #b79e88;
+  --text-faint: #7a6a5c;
+  --line: rgba(241, 234, 220, 0.16);
+  --line-strong: rgba(241, 234, 220, 0.34);
+  --surface: #3b2a20;
+  --surface-alt: #2e211a;
+  --canvas: #241a15;
+  --brand: #f1eadc;
+  --brand-hover: #faf6ee;
+  --on-brand: #241a15;
+  --brand-leather: #b79e88;
+  --focus-ring: #f1eadc;
+  color: var(--text);
+}
+
+.on-ink a {
+  color: var(--text);
+}
+
+.on-ink a:hover {
+  color: #fff;
+}
+
+/* ── utilità di marchio ─────────────────────────────────────
+   Il wordmark è sempre minuscolo, e il punto della i è un anello:
+   quello lo disegna il font, non il CSS. */
+.rl-wordmark {
+  font-family: var(--wordmark);
+  font-weight: var(--w-wordmark);
+  text-transform: lowercase;
+  letter-spacing: var(--tr-wordmark);
+  line-height: var(--lh-flush);
+  color: var(--text);
+}
+
+/* L'eyebrow è un timbro, non un titolo: ha il ritmo di un orario o di
+   un luogo, e non ripete mai il titolo che sta sotto. */
+.rl-eyebrow {
+  font-family: var(--sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: var(--lh-tight);
+  display: block;
+}
+
+.rl-display {
+  font-family: var(--serif);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+}
+
+.rl-lead {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-snug);
+  color: var(--text-secondary);
+  max-width: var(--measure-lead);
+}
+
+.rl-body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  max-width: var(--measure-body);
+}
+
+.rl-small {
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-snug);
+  color: var(--text-secondary);
+}
+
+.rl-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.rl-mono {
+  font-family: var(--mono);
+  font-size: var(--fs-body-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.rl-rule {
+  border: 0;
+  border-top: var(--border-hair);
+  margin: 0;
+}
+
+.rl-container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+}
+
+.rl-section {
+  padding-block: var(--section-pad);
+}
+
+.rl-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── messaggio di sistema ───────────────────────────────────
+   Filetto verticale da 2px: è l'unico bordo laterale del sistema. */
+.rl-msg {
+  background: var(--surface);
+  border: var(--border-hair);
+  border-left: var(--rule-accent) solid var(--text);
+  padding: 14px 18px;
+  font-size: 14px;
+  max-width: var(--measure-note);
+}
+
+.rl-msg__label {
+  display: block;
+  font-size: var(--fs-micro);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  margin-bottom: var(--s1);
+}
+
+.rl-msg__body {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.rl-msg--alert {
+  border-left-color: var(--alert);
+}
+
+.rl-msg--alert .rl-msg__label {
+  color: var(--alert);
+}
+
+.rl-msg--confirm {
+  border-left-color: var(--confirm);
+}
+
+.rl-msg--confirm .rl-msg__label {
+  color: var(--confirm);
+}
+
+/* ── tabella specifiche ─────────────────────────────────────
+   I dati mancanti si dichiarano: — , mai 0,00, mai un numero
+   verosimile messo lì per riempire. */
+.rl-specs {
+  max-width: 36em;
+  margin: 0;
+  border-top: var(--border-hair);
+}
+
+.rl-specs__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s5);
+  padding: var(--s3) 0;
+  border-bottom: var(--border-hair);
+}
+
+.rl-specs dt {
+  font-size: var(--fs-body-sm);
+  color: var(--text-muted);
+}
+
+.rl-specs dd {
+  margin: 0;
+  font-size: var(--fs-body-sm);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ── blocco editoriale ──────────────────────────────────────
+   La velatura non è decorazione, è leggibilità: il terzo inferiore
+   dello scatto resta libero da dettagli essenziali. */
+.rl-ed {
+  position: relative;
+  aspect-ratio: var(--ratio-editorial);
+  min-height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: var(--ink);
+}
+
+.rl-ed img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rl-ed::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: var(--veil-height);
+  background: var(--veil);
+  pointer-events: none;
+}
+
+.rl-ed__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--caption-inset-lg);
+  color: #f1eadc;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rl-ed__eyebrow {
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tr-caption);
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.rl-ed__title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.2vw, 38px);
+  line-height: 1.05;
+  letter-spacing: var(--tr-h2);
+  max-width: var(--measure-title);
+  margin: 0;
+}
+
+.rl-ed--tall {
+  aspect-ratio: var(--ratio-model);
+}
+
+/* ── riquadro fotografico ───────────────────────────────────
+   La fotografia si muove dentro il proprio riquadro, mai fuori. */
+.rl-shot {
+  overflow: hidden;
+  background: var(--photo-bg);
+  border: var(--border-hair);
+  border-radius: var(--r-image);
+}
+
+.rl-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rl-shot--product {
+  aspect-ratio: var(--ratio-product);
+}
+
+.rl-shot--model {
+  aspect-ratio: var(--ratio-model);
+}
+
+.rl-shot--detail {
+  aspect-ratio: var(--ratio-detail);
+}
+
+/* ============================================================
+   4. INNESTI — quello che le impostazioni non sanno dire
+
+   Tenuto corto di proposito. Ogni regola qui e una cosa che il design
+   system prescrive e che nessun campo dell'editor tema sa esprimere;
+   tutto il resto passa da config/settings_data.json, dove resta
+   modificabile senza toccare il codice.
+   ============================================================ */
+
+/* Il logotipo nella barra. Horizon compone il nome del negozio con la
+   famiglia del corpo, scritta inline sull'elemento: per sostituirla
+   serve !important, perche una dichiarazione inline vince su un foglio.
+   Con un logo caricato come immagine questa regola non tocca niente. */
+.header-logo {
+  --font-family: var(--wordmark) !important;
+  --font-weight: var(--w-wordmark) !important;
+  text-transform: lowercase;
+  letter-spacing: var(--tr-wordmark);
+}
+
+/* La barra e uno dei due soli elementi traslucidi del sistema, ed e
+   l'unico con sfocatura — l'altro e lo scrim del cassetto, che invece
+   non si sfoca mai. Il beige al 92% lo mette background_color_top nelle
+   impostazioni della testata, cosi resta modificabile dall'editor:
+   qui c'e solo la sfocatura, che nessun campo sa esprimere. */
+.header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Il piede porta un filetto in alto: la sezione non ha un campo bordo. */
+.page-wrapper > footer {
+  border-top: var(--border-hair);
+}
+
+/* I link del piede sono maiuscoletti a 12px, spaziati poco — meno
+   dell'eyebrow, che e un timbro e non un elenco. I preset tipografici
+   dell'editor si fermano ai sette gradini h1-h6 e paragraph, e nessuno
+   dei sette e questo. */
+.page-wrapper > footer .menu__item a {
+  font-size: var(--fs-button);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+.page-wrapper > footer .menu__item a:hover {
+  color: var(--text);
+}

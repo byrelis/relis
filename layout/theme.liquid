@@ -24,6 +24,13 @@
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
 
+    {%- comment -%}
+      Il layer relis va dopo color-palette: rimappa le variabili che
+      Horizon ha appena dichiarato, e per farlo deve arrivare per ultimo.
+    {%- endcomment -%}
+    {%- render 'relis-fonts' -%}
+    {{ 'relis.css' | asset_url | stylesheet_tag }}
+
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}

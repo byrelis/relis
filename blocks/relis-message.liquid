@@ -1,0 +1,73 @@
+{% doc %}
+  Messaggio di sistema relis.
+
+  Un riquadro con filetto verticale da 2px a sinistra: e l'unico bordo
+  laterale del sistema e appartiene solo ai messaggi.
+
+  Il tono porta sempre la sua parola scritta — In attesa, Fatto, Errore —
+  perche il colore non porta mai il significato da solo. Un filetto rosso
+  senza etichetta e un errore di implementazione.
+{% enddoc %}
+
+{% liquid
+  assign tone_class = ''
+  case block.settings.tone
+    when 'alert'
+      assign tone_class = ' rl-msg--alert'
+    when 'confirm'
+      assign tone_class = ' rl-msg--confirm'
+  endcase
+%}
+
+<div class="rl-msg{{ tone_class }}" {{ block.shopify_attributes }}>
+  {%- if block.settings.label != blank -%}
+    <span class="rl-msg__label">{{ block.settings.label }}</span>
+  {%- endif -%}
+  <div class="rl-msg__body">{{ block.settings.text }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "Messaggio",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "Tono",
+      "info": "Il tono cambia solo il filetto. L'etichetta resta obbligatoria: il colore non porta mai il significato da solo.",
+      "options": [
+        {
+          "value": "neutral",
+          "label": "Neutro"
+        },
+        {
+          "value": "confirm",
+          "label": "Conferma"
+        },
+        {
+          "value": "alert",
+          "label": "Errore"
+        }
+      ],
+      "default": "neutral"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Etichetta",
+      "default": "In attesa"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Testo"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Messaggio"
+    }
+  ]
+}
+{% endschema %}
