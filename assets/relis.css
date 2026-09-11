@@ -801,3 +801,49 @@ h6,
 .page-wrapper > footer .menu__item a:hover {
   color: var(--text);
 }
+
+/* ── apertura ───────────────────────────────────────────────
+   Gli agganci qui sotto si appendono al nome della sezione nel
+   template (__apertura, __editoriale): finche la sezione conserva la
+   sua chiave in templates/index.json, il selettore tiene. Se qualcuno
+   la duplica dall'editor, la copia prende una chiave nuova e queste
+   regole non la seguono — ed e voluto.
+
+   L'apertura porta DUE velature, non una. Quella dal basso la fa il
+   campo sovrapposizione della sezione; questa viene da sinistra e
+   serve a tenere leggibile il testo sulla meta chiara dello scatto.
+   Il campo ne ammette una sola, quindi la seconda si aggiunge qui. */
+[id^="Hero-"][id$="__apertura"] .hero__media-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: var(--layer-flat);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(28, 20, 15, 0.78) 0%,
+    rgba(28, 20, 15, 0.42) 46%,
+    rgba(28, 20, 15, 0) 78%
+  );
+}
+
+/* Il titolo d'apertura e l'unico display della pagina. Horizon ricava
+   una scala fluida dal gradino scelto, ma interlinea e misura di riga
+   le prende dai suoi tre valori fissi: 1.15 invece di 1.02, e 9.75em
+   invece di 13em. Su un titolo di tre righe la differenza si vede.
+   Sono dichiarazioni inline sull'elemento, quindi qui serve !important:
+   e l'unico posto del foglio dove compare. */
+[id^="Hero-"][id$="__apertura"] .text-block.custom {
+  --line-height: var(--lh-display) !important;
+  --max-width: var(--measure-title) !important;
+  --letter-spacing: var(--tr-display) !important;
+}
+
+/* ── banda editoriale ───────────────────────────────────────
+   Uno dei quattro tagli del sistema: 21:9, a piena larghezza. Le
+   altezze di sezione dell'editor sono percentuali di schermo, non
+   rapporti, quindi il taglio si impone qui. */
+[id$="__editoriale"] .section-content-wrapper {
+  aspect-ratio: var(--ratio-editorial);
+  min-height: 200px;
+}
