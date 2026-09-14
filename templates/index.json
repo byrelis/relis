@@ -24,7 +24,7 @@
       "settings": {
         "etichetta": "Copertina",
         "autoplay": true,
-        "secondi": 5
+        "secondi": 6
       },
       "blocks": {
         "ordinata": {
@@ -34,7 +34,7 @@
             "tono": "scuro",
             "timbro": "Fuga 26 · 44 × 32 × 18,5 cm",
             "titolo": "Due notti.\nTutto al suo posto.",
-            "apertura": "La borsa da viaggio che passa sotto il sedile easyJet.",
+            "apertura": "La borsa da viaggio che passa sotto il sedile.",
             "etichetta": "Scopri Fuga 26",
             "link": "shopify://collections/all"
           }
@@ -46,7 +46,7 @@
             "tono": "chiaro",
             "timbro": "Fuga 26 + Rituale",
             "titolo": "In attesa del gate,\nsenza pensieri.",
-            "apertura": "La borsa da due notti che vola gratis con easyJet e ITA.",
+            "apertura": "La borsa da due notti che vola gratis.",
             "etichetta": "Scopri il set",
             "link": "shopify://collections/all"
           }

@@ -135,7 +135,7 @@ cartella `assets/foto/`:
 
 ### 4. I menu
 
-- `main-menu` — Borse, Rituale, Le misure, Regali, Set
+- `main-menu` — Home, Borse, Rituale, Le misure, Regali
 - tre menu per il piede — Negozio, Aiuto, Legali — da collegare alle tre colonne
   dall'editor
 

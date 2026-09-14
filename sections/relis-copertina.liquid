@@ -294,7 +294,7 @@
       this.indice = 0;
       const menoMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       this.automatico = this.dataset.autoplay === 'true' && !menoMovimento;
-      this.secondi = Math.max(2, Number(this.dataset.secondi) || 5);
+      this.secondi = Math.max(4, Number(this.dataset.secondi) || 6);
 
       this.alClic = (evento) => {
         const bottone = evento.target.closest('[data-vai]');
@@ -453,11 +453,11 @@
       "type": "range",
       "id": "secondi",
       "label": "Durata di ogni copertina",
-      "min": 2,
+      "min": 4,
       "max": 12,
       "step": 1,
       "unit": "s",
-      "default": 5
+      "default": 6
     }
   ],
   "presets": [
