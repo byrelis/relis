@@ -1,13 +1,15 @@
 {% doc %}
-  Una riga della tabella specifiche: etichetta e valore.
-
-  Il valore va a destra ed e tabular, cosi le cifre incolonnano fra righe.
-  Quando il dato non c'e si scrive un trattino lungo, non uno zero.
+  Una riga della tabella misure: easyJet · 45 × 36 × 20 · Gratis sotto il
+  sedile. Etichetta a sinistra, misura mono a destra, una nota facoltativa
+  sotto a tutta larghezza.
 {% enddoc %}
 
 <div class="rl-specs__row" {{ block.shopify_attributes }}>
   <dt>{{ block.settings.label }}</dt>
-  <dd>{{ block.settings.value | default: '—' }}</dd>
+  <dd>{{ block.settings.value }}</dd>
+  {%- if block.settings.nota != blank -%}
+    <dd class="rl-specs__nota">{{ block.settings.nota }}</dd>
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -19,14 +21,19 @@
       "type": "text",
       "id": "label",
       "label": "Etichetta",
-      "default": "Etichetta"
+      "default": "easyJet"
     },
     {
       "type": "text",
       "id": "value",
-      "label": "Valore",
-      "info": "Se il dato non e ancora deciso, lascia il trattino lungo —",
-      "default": "—"
+      "label": "Misura",
+      "default": "45 × 36 × 20"
+    },
+    {
+      "type": "text",
+      "id": "nota",
+      "label": "Nota",
+      "default": "Gratis sotto il sedile"
     }
   ]
 }

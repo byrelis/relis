@@ -1,0 +1,35 @@
+{% comment %}
+  La striscia sopra il piede: quattro bande verticali ripetute, le tinte
+  della fodera a righe. Non contiene niente e non dice niente — separa la
+  pagina dal piede come una cucitura.
+{% endcomment %}
+
+<div class="relis-striscia" aria-hidden="true"></div>
+
+{% stylesheet %}
+  .relis-striscia {
+    height: var(--stripe-height, 56px);
+    background: repeating-linear-gradient(
+      90deg,
+      var(--stripe-1) 0 26px,
+      var(--stripe-2) 26px 52px,
+      var(--stripe-1) 52px 78px,
+      var(--stripe-3) 78px 104px
+    );
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Striscia",
+  "tag": "div",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "presets": [
+    {
+      "name": "Striscia"
+    }
+  ]
+}
+{% endschema %}

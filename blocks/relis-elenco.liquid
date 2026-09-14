@@ -1,0 +1,76 @@
+{% doc %}
+  Elenco numerato relis: 01 · Scomparto laptop imbottito.
+
+  La numerazione la fa il CSS, non chi scrive: aggiungere, togliere o
+  riordinare le righe dall'editor non lascia mai un 03 dopo un 01.
+{% enddoc %}
+
+<ol
+  class="rl-elenco{% if block.settings.tono == 'scuro' %} rl-elenco--scuro{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  {% content_for 'blocks' %}
+</ol>
+
+{% schema %}
+{
+  "name": "Elenco numerato",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_relis-elenco-riga"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "tono",
+      "label": "Fondo",
+      "info": "Cambia colore di filetti e numeri. Scegli Scuro sulle sezioni marroni o inchiostro.",
+      "options": [
+        {
+          "value": "chiaro",
+          "label": "Chiaro"
+        },
+        {
+          "value": "scuro",
+          "label": "Scuro"
+        }
+      ],
+      "default": "chiaro"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Elenco numerato",
+      "blocks": {
+        "riga-1": {
+          "type": "_relis-elenco-riga",
+          "settings": {
+            "testo": "Scomparto laptop imbottito"
+          }
+        },
+        "riga-2": {
+          "type": "_relis-elenco-riga",
+          "settings": {
+            "testo": "Rituale, beauty case abbinato"
+          }
+        },
+        "riga-3": {
+          "type": "_relis-elenco-riga",
+          "settings": {
+            "testo": "Tasche elastiche interne"
+          }
+        },
+        "riga-4": {
+          "type": "_relis-elenco-riga",
+          "settings": {
+            "testo": "Passante per il trolley"
+          }
+        }
+      },
+      "block_order": ["riga-1", "riga-2", "riga-3", "riga-4"]
+    }
+  ]
+}
+{% endschema %}

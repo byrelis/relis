@@ -1,28 +1,22 @@
 {% doc %}
-  Carica le quattro famiglie del design system relis.
+  Carica le quattro famiglie dell'identita relis.
 
   Nessuna delle quattro esiste nella libreria font di Shopify, quindi il
-  font_picker delle impostazioni tema non puo servirle: le famiglie
-  scelte nell'editor restano come ripiego e vengono sostituite in
-  assets/relis.css.
+  font_picker delle impostazioni tema non puo servirle: le famiglie scelte
+  nell'editor restano come ripiego e vengono sostituite in assets/relis.css.
 
-  I file sono ospitati nel tema, non chiamati da un CDN esterno. Due
-  ragioni: il negozio e italiano e il CDN di Google trasmette l'IP del
-  visitatore a un terzo, cosa che in UE e stata contestata piu volte; e
-  passando dalla CDN di Shopify i font arrivano dallo stesso host del
-  resto della pagina.
+  I file sono ospitati nel tema, non chiamati dal CDN di Google: il negozio
+  e italiano, e quel CDN trasmette l'IP del visitatore a un terzo.
 
-  Sottoinsiemi: solo latin e latin-ext. Gli altri — cirillico, greco,
-  vietnamita — sono stati scartati: il sito e in italiano e inglese.
-  Il latin comprende U+2212, il segno meno vero che accordion e
-  selettore di quantita usano al posto del trattino.
+  Sottoinsiemi: solo latin e latin-ext. Il latin comprende U+2212, il segno
+  meno vero del selettore di quantita.
 
-  Inter Tight e un font variabile: 400 e 500 sono lo stesso file, ed e
-  dichiarato una volta sola con un intervallo di peso.
+  Bodoni Moda e Hanken Grotesk sono variabili: un file copre tutti i pesi
+  usati, ed e dichiarato una volta sola con un intervallo di peso. DM Mono
+  e statico, un file per peso.
 
-  RESTA DA VERIFICARE: la licenza web di Open Sauce Sans. Il file arriva
-  da Fontsource ed e usato solo per il logotipo. Vedi il punto 4 delle
-  questioni aperte nel readme del design system.
+  RESTA DA VERIFICARE: la licenza web di Open Sauce Sans, usata solo per
+  il logotipo.
 {% enddoc %}
 
 {% liquid
@@ -31,112 +25,93 @@
 %}
 
 {% comment %}
-  Precarico i tre tagli che compaiono sopra la piega: il corpo, il serif
-  dei titoli e il logotipo nella barra. Il resto arriva quando serve.
+  Precarico i tagli sopra la piega: il corpo, il corsivo dei titoli, il
+  mono della barra annunci e il logotipo.
 {% endcomment %}
-{{ 'inter-tight-400-latin.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-{{ 'instrument-serif-400-latin.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+{{ 'hanken-grotesk-latin.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+{{ 'bodoni-moda-italic-latin.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+{{ 'dm-mono-400-latin.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 {{ 'open-sauce-sans-600-latin.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 
 {% style %}
-  /* ── Instrument Serif — display, H1, H2, H3, nomi di prodotto ──
-     Non scende mai sotto i 22px: sotto quella soglia perde il disegno. */
+  /* ── Bodoni Moda — titoli, sempre corsivo ──
+     Variabile anche sull'asse della dimensione ottica: il disegno si
+     adatta da solo fra i 26px di una card e gli 84px della copertina. */
   @font-face {
-    font-family: "Instrument Serif";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("{{ 'instrument-serif-400-latin.woff2' | asset_url }}") format("woff2");
-    unicode-range: {{ latin }};
-  }
-
-  @font-face {
-    font-family: "Instrument Serif";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("{{ 'instrument-serif-400-latin-ext.woff2' | asset_url }}") format("woff2");
-    unicode-range: {{ latin_ext }};
-  }
-
-  @font-face {
-    font-family: "Instrument Serif";
+    font-family: "Bodoni Moda";
     font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url("{{ 'instrument-serif-400-italic-latin.woff2' | asset_url }}") format("woff2");
-    unicode-range: {{ latin }};
-  }
-
-  @font-face {
-    font-family: "Instrument Serif";
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url("{{ 'instrument-serif-400-italic-latin-ext.woff2' | asset_url }}") format("woff2");
-    unicode-range: {{ latin_ext }};
-  }
-
-  /* ── Inter Tight — corpo, apertura, maiuscoletti, bottoni ──
-     Variabile: un file solo copre 400 e 500. */
-  @font-face {
-    font-family: "Inter Tight";
-    font-style: normal;
     font-weight: 400 500;
     font-display: swap;
-    src: url("{{ 'inter-tight-400-latin.woff2' | asset_url }}") format("woff2");
+    src: url("{{ 'bodoni-moda-italic-latin.woff2' | asset_url }}") format("woff2");
     unicode-range: {{ latin }};
   }
 
   @font-face {
-    font-family: "Inter Tight";
-    font-style: normal;
+    font-family: "Bodoni Moda";
+    font-style: italic;
     font-weight: 400 500;
     font-display: swap;
-    src: url("{{ 'inter-tight-400-latin-ext.woff2' | asset_url }}") format("woff2");
+    src: url("{{ 'bodoni-moda-italic-latin-ext.woff2' | asset_url }}") format("woff2");
     unicode-range: {{ latin_ext }};
   }
 
-  /* ── IBM Plex Mono — di servizio: numeri tecnici, i segni + e − ── */
+  /* ── Hanken Grotesk — corpo, navigazione, bottoni ── */
   @font-face {
-    font-family: "IBM Plex Mono";
+    font-family: "Hanken Grotesk";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 400 600;
     font-display: swap;
-    src: url("{{ 'ibm-plex-mono-400-latin.woff2' | asset_url }}") format("woff2");
+    src: url("{{ 'hanken-grotesk-latin.woff2' | asset_url }}") format("woff2");
     unicode-range: {{ latin }};
   }
 
   @font-face {
-    font-family: "IBM Plex Mono";
+    font-family: "Hanken Grotesk";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("{{ 'hanken-grotesk-latin-ext.woff2' | asset_url }}") format("woff2");
+    unicode-range: {{ latin_ext }};
+  }
+
+  /* ── DM Mono — timbri, misure, prezzi, numeri ── */
+  @font-face {
+    font-family: "DM Mono";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("{{ 'ibm-plex-mono-400-latin-ext.woff2' | asset_url }}") format("woff2");
+    src: url("{{ 'dm-mono-400-latin.woff2' | asset_url }}") format("woff2");
+    unicode-range: {{ latin }};
+  }
+
+  @font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("{{ 'dm-mono-400-latin-ext.woff2' | asset_url }}") format("woff2");
     unicode-range: {{ latin_ext }};
   }
 
   @font-face {
-    font-family: "IBM Plex Mono";
+    font-family: "DM Mono";
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url("{{ 'ibm-plex-mono-500-latin.woff2' | asset_url }}") format("woff2");
+    src: url("{{ 'dm-mono-500-latin.woff2' | asset_url }}") format("woff2");
     unicode-range: {{ latin }};
   }
 
   @font-face {
-    font-family: "IBM Plex Mono";
+    font-family: "DM Mono";
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url("{{ 'ibm-plex-mono-500-latin-ext.woff2' | asset_url }}") format("woff2");
+    src: url("{{ 'dm-mono-500-latin-ext.woff2' | asset_url }}") format("woff2");
     unicode-range: {{ latin_ext }};
   }
 
-  /* ── Open Sauce Sans — solo il logotipo, e nient'altro ──
-     Non e tipografia di sistema. Il dettaglio da proteggere e che il
-     punto della i e un anello, non un cerchio pieno. */
+  /* ── Open Sauce Sans — solo il logotipo ── */
   @font-face {
     font-family: "Open Sauce Sans";
     font-style: normal;

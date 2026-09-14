@@ -8,378 +8,58 @@
  * ------------------------------------------------------------
  *
  * relis — home.
- * Composta con le sezioni native di Horizon: nessuna sezione custom,
- * cosi ogni blocco resta modificabile dall'editor tema e gli
- * aggiornamenti da upstream continuano ad applicarsi.
+ * Da Home.dc.html: copertina, la collezione, dentro, le misure, fuori,
+ * regali. La striscia e il piede stanno in sections/footer-group.json.
  *
- * Le fotografie non sono incluse: sono contenuto, non tema. Vanno
- * caricate dall'editor nei campi immagine di ogni sezione. I tagli
- * previsti dal sistema sono quattro — prodotto 3:4, modella 4:5,
- * editoriale 21:9, dettaglio 1:1.
+ * Le fotografie sono contenuto, non tema: vanno caricate dall'editor.
+ * I link puntano a tutti i prodotti finche Fuga 26 e il set non
+ * esistono in catalogo.
  * ------------------------------------------------------------
  */
 {
   "sections": {
-    "apertura": {
-      "type": "hero",
+    "copertina": {
+      "type": "relis-copertina",
+      "name": "Copertina",
+      "settings": {
+        "etichetta": "Copertina",
+        "autoplay": true,
+        "secondi": 5
+      },
       "blocks": {
-        "eyebrow": {
-          "type": "text",
-          "name": "Eyebrow",
+        "ordinata": {
+          "type": "slide",
           "settings": {
-            "text": "<p>11.18 — Treno per Anversa</p>",
-            "width": "100%",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "h6",
-            "font": "var(--font-subheading--family)",
-            "font_size": "",
-            "line_height": "tight",
-            "letter_spacing": "loose",
-            "case": "uppercase",
-            "wrap": "pretty",
-            "text_color": "#f1eadc",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "posizione_x": 78,
+            "tono": "scuro",
+            "timbro": "Fuga 26 · 44 × 32 × 18,5 cm",
+            "titolo": "Due notti.\nTutto al suo posto.",
+            "apertura": "La borsa da viaggio che passa sotto il sedile easyJet.",
+            "etichetta": "Scopri Fuga 26",
+            "link": "shopify://collections/all"
+          }
         },
-        "titolo": {
-          "type": "text",
-          "name": "Titolo",
+        "gate": {
+          "type": "slide",
           "settings": {
-            "text": "<p>Quello che porti quando non sai ancora quanto resti</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-heading--family)",
-            "font_size": "4.5rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "#f1eadc",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 16,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "apertura_testo": {
-          "type": "text",
-          "name": "Apertura",
-          "settings": {
-            "text": "<p>Una borsa weekender che non serve solo il weekend. Nabuk a concia vegetale, tre colorazioni, nessuna stagione.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "paragraph",
-            "font": "var(--font-body--family)",
-            "font_size": "1.125rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "#e8dbc7",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 8,
-            "padding-block-end": 8,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "azioni": {
-          "type": "group",
-          "name": "Azioni",
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 16,
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "azione_primaria": {
-              "type": "button",
-              "name": "Scopri",
-              "settings": {
-                "label": "Scopri la Relis 42",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button-custom",
-                "custom_button_background": "#f1eadc",
-                "custom_button_text": "#241a15",
-                "custom_button_border": "#f1eadc",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            },
-            "azione_secondaria": {
-              "type": "button",
-              "name": "Cosa ci sta dentro",
-              "settings": {
-                "label": "Cosa ci sta dentro",
-                "link": "",
-                "open_in_new_tab": false,
-                "style_class": "button-custom",
-                "custom_button_background": "rgba(0,0,0,0)",
-                "custom_button_text": "#f1eadc",
-                "custom_button_border": "#f1eadc",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": ["azione_primaria", "azione_secondaria"]
+            "posizione_x": 72,
+            "tono": "chiaro",
+            "timbro": "Fuga 26 + Rituale",
+            "titolo": "In attesa del gate,\nsenza pensieri.",
+            "apertura": "La borsa da due notti che vola gratis con easyJet e ITA.",
+            "etichetta": "Scopri il set",
+            "link": "shopify://collections/all"
+          }
         }
       },
-      "block_order": ["eyebrow", "titolo", "apertura_testo", "azioni"],
-      "name": "Apertura",
-      "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-end",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 0,
-        "section_width": "page-width",
-        "section_height": "large",
-        "section_height_custom": 78,
-        "toggle_overlay": true,
-        "overlay_color": "#1c140f",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 96,
-        "padding-block-end": 64
-      }
+      "block_order": [
+        "ordinata",
+        "gate"
+      ]
     },
-    "una_borsa_sola": {
-      "type": "section",
-      "blocks": {
-        "riga": {
-          "type": "group",
-          "name": "Riga",
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-start",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 48,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "eyebrow": {
-              "type": "text",
-              "name": "Eyebrow",
-              "settings": {
-                "text": "<p>Una borsa sola</p>",
-                "width": "100%",
-                "max_width": "none",
-                "alignment": "left",
-                "type_preset": "h6",
-                "font": "var(--font-subheading--family)",
-                "font_size": "",
-                "line_height": "tight",
-                "letter_spacing": "loose",
-                "case": "uppercase",
-                "wrap": "pretty",
-                "text_color": "#b79e88",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "testo": {
-              "type": "group",
-              "name": "Testo",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "flex-start",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "flex-start",
-                "gap": 24,
-                "width": "custom",
-                "custom_width": 68,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "titolo": {
-                  "type": "text",
-                  "name": "Titolo",
-                  "settings": {
-                    "text": "<p>Non facciamo una collezione. Facciamo una borsa, e la facciamo bene.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-heading--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#f1eadc",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "corpo": {
-                  "type": "text",
-                  "name": "Corpo",
-                  "settings": {
-                    "text": "<p>Nabuk pieno fiore a concia vegetale, non trattato in superficie. Si segna, si scurisce, e previsto: e il modo in cui un cuoio vero racconta dove e stato. Tre colorazioni, nessuna stagione, nessun saldo di fine serie.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "paragraph",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "loose",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#c8bca5",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": ["titolo", "corpo"]
-            }
-          },
-          "block_order": ["eyebrow", "testo"]
-        }
-      },
-      "block_order": ["riga"],
-      "name": "Una borsa sola",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#241a15",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 96,
-        "padding-block-end": 96
-      }
-    },
-    "colorazioni": {
+    "collezione": {
       "type": "product-list",
+      "name": "La collezione",
       "blocks": {
         "static-header": {
           "type": "_product-list-content",
@@ -393,7 +73,7 @@
             "align_baseline": true,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
+            "gap": 24,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -417,12 +97,10 @@
               "type": "_product-list-text",
               "name": "Titolo",
               "settings": {
-                "text": "<h2>Scegli la colorazione</h2>",
+                "text": "<h2>La collezione</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h2",
-                "font": "var(--font-heading--family)",
                 "font_size": "",
                 "line_height": "normal",
                 "letter_spacing": "normal",
@@ -431,6 +109,8 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
+                "type_preset": "h2",
+                "font": "var(--font-heading--family)",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -440,51 +120,55 @@
             },
             "nota": {
               "type": "_product-list-text",
-              "name": "Nota",
+              "name": "Timbro",
               "settings": {
-                "text": "<p>Tre, e resteranno tre</p>",
+                "text": "<p>Due pezzi · due colori · un solo interno</p>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "right",
-                "type_preset": "h6",
-                "font": "var(--font-subheading--family)",
                 "font_size": "",
-                "line_height": "tight",
-                "letter_spacing": "loose",
+                "line_height": "normal",
+                "letter_spacing": "normal",
                 "case": "uppercase",
                 "wrap": "pretty",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
+                "type_preset": "h6",
+                "font": "var(--font-accent--family)",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "text_color": "#4b2e27"
               },
               "blocks": {}
             }
           },
-          "block_order": ["titolo", "nota"]
+          "block_order": [
+            "titolo",
+            "nota"
+          ]
         },
         "static-product-card": {
           "type": "_product-card",
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 12,
-            "border": "solid",
+            "product_card_gap": 16,
+            "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 4,
+            "border_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 16,
+            "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
           "blocks": {
-            "immagine": {
+            "scatto": {
               "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
+              "name": "Scatto",
               "settings": {
                 "image_ratio": "portrait",
                 "border": "none",
@@ -498,57 +182,150 @@
               },
               "blocks": {}
             },
-            "titolo": {
-              "type": "product-title",
-              "name": "t:names.product_title",
+            "testo": {
+              "type": "_product-card-group",
+              "name": "Testo",
               "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
-                "font": "var(--font-heading--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 6,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 16,
-                "padding-inline-end": 16
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
-              "blocks": {}
-            },
-            "prezzo": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h5",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 16,
-                "padding-inline-end": 16
+              "blocks": {
+                "nome_prezzo": {
+                  "type": "_product-card-group",
+                  "name": "Nome e prezzo",
+                  "settings": {
+                    "content_direction": "row",
+                    "vertical_on_mobile": false,
+                    "horizontal_alignment": "space-between",
+                    "vertical_alignment": "flex-end",
+                    "align_baseline": true,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "nome": {
+                      "type": "product-title",
+                      "name": "Nome",
+                      "settings": {
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "h4",
+                        "font": "var(--font-heading--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "prezzo": {
+                      "type": "price",
+                      "name": "Prezzo",
+                      "settings": {
+                        "show_sale_price_first": true,
+                        "show_installments": false,
+                        "show_tax_info": false,
+                        "type_preset": "custom",
+                        "width": "fit-content",
+                        "alignment": "right",
+                        "font": "var(--font-accent--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "nome",
+                    "prezzo"
+                  ]
+                },
+                "misure": {
+                  "type": "custom-liquid",
+                  "name": "Misure",
+                  "settings": {
+                    "custom_liquid": "{%- if closest.product.metafields.custom.misure != blank -%}<p class=\"rl-card-misure\">{{ closest.product.metafields.custom.misure }}</p>{%- endif -%}"
+                  },
+                  "blocks": {}
+                },
+                "sottotitolo": {
+                  "type": "custom-liquid",
+                  "name": "Sottotitolo",
+                  "settings": {
+                    "custom_liquid": "{%- if closest.product.metafields.custom.sottotitolo != blank -%}<p class=\"rl-card-sottotitolo\">{{ closest.product.metafields.custom.sottotitolo }}</p>{%- endif -%}"
+                  },
+                  "blocks": {}
+                }
               },
-              "blocks": {}
+              "block_order": [
+                "nome_prezzo",
+                "misure",
+                "sottotitolo"
+              ]
             }
           },
-          "block_order": ["immagine", "titolo", "prezzo"]
+          "block_order": [
+            "scatto",
+            "testo"
+          ]
         }
       },
-      "name": "Colorazioni",
       "settings": {
         "collection": "all",
         "layout_type": "grid",
@@ -556,161 +333,21 @@
         "max_products": 3,
         "columns": 3,
         "mobile_columns": "1",
-        "mobile_card_size": "80cqw",
-        "columns_gap": 24,
-        "rows_gap": 24,
+        "mobile_card_size": "60cqw",
+        "columns_gap": 28,
+        "rows_gap": 28,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
-        "gap": 32,
-        "padding-block-start": 96,
-        "padding-block-end": 32
-      }
-    },
-    "nota_prezzo": {
-      "type": "section",
-      "blocks": {
-        "nota": {
-          "type": "text",
-          "name": "Nota",
-          "settings": {
-            "text": "<p>Prezzo da definire: il prototipo non e ancora industrializzato.</p>",
-            "width": "100%",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "h5",
-            "font": "var(--font-body--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "#6b6259",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": ["nota"],
-      "name": "Nota sul prezzo",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 96
-      }
-    },
-    "editoriale": {
-      "type": "section",
-      "blocks": {
-        "eyebrow": {
-          "type": "text",
-          "name": "Eyebrow",
-          "settings": {
-            "text": "<p>Milano — luce di taglio</p>",
-            "width": "fit-content",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "h6",
-            "font": "var(--font-subheading--family)",
-            "font_size": "",
-            "line_height": "tight",
-            "letter_spacing": "loose",
-            "case": "uppercase",
-            "wrap": "pretty",
-            "text_color": "#f1eadc",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "titolo": {
-          "type": "text",
-          "name": "Titolo",
-          "settings": {
-            "text": "<p>Il cuoio si legge dalla luce che prende</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-heading--family)",
-            "font_size": "",
-            "line_height": "tight",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "#f1eadc",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 10,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": ["eyebrow", "titolo"],
-      "name": "Banda editoriale",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-end",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 0,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "background_media": "image",
-        "background_color": "#241a15",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": true,
-        "overlay_color": "#1c140f",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 32,
-        "padding-block-end": 32
+        "gap": 40,
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
     "dentro": {
       "type": "section",
+      "name": "Dentro",
       "blocks": {
         "riga": {
           "type": "group",
@@ -745,15 +382,15 @@
           "blocks": {
             "scatto": {
               "type": "image",
-              "name": "Interno",
+              "name": "Dall'alto",
               "settings": {
-                "image_ratio": "square",
-                "width": "fill",
-                "custom_width": 50,
+                "image_ratio": "portrait",
+                "width": "custom",
+                "custom_width": 42,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
                 "height": "fit",
-                "border": "solid",
+                "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
@@ -795,28 +432,29 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "eyebrow": {
+                "timbro": {
                   "type": "text",
-                  "name": "Eyebrow",
+                  "name": "Timbro",
                   "settings": {
-                    "text": "<p>Guida al contenuto</p>",
-                    "width": "fit-content",
+                    "text": "<p>Dall'alto · scatto firma</p>",
+                    "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-subheading--family)",
                     "font_size": "",
-                    "line_height": "tight",
-                    "letter_spacing": "loose",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
                     "case": "uppercase",
                     "wrap": "pretty",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
+                    "type_preset": "h6",
+                    "font": "var(--font-accent--family)",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "text_color": "#d9c9bf"
                   },
                   "blocks": {}
                 },
@@ -824,12 +462,10 @@
                   "type": "text",
                   "name": "Titolo",
                   "settings": {
-                    "text": "<p>Tre giorni, senza pensarci troppo</p>",
+                    "text": "<h2>Fuori il colore, dentro il calore.</h2>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "narrow",
                     "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-heading--family)",
                     "font_size": "",
                     "line_height": "normal",
                     "letter_spacing": "normal",
@@ -838,245 +474,99 @@
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 12,
+                    "type_preset": "h2",
+                    "font": "var(--font-heading--family)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 8,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "text_color": "#f1eee9"
                   },
                   "blocks": {}
                 },
-                "specifiche": {
-                  "type": "relis-specs",
-                  "name": "Guida al contenuto",
+                "corpo": {
+                  "type": "text",
+                  "name": "Corpo",
                   "settings": {
-                    "width": "fill"
+                    "text": "<p>La fodera è sempre Marrone Autunno. L'accento azzurro dentro la borsa lo porta Rituale: quello azzurro nella borsa marrone, quello marrone nella borsa azzurra.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#ede1d8"
+                  },
+                  "blocks": {}
+                },
+                "elenco": {
+                  "type": "relis-elenco",
+                  "name": "Dentro Fuga 26",
+                  "settings": {
+                    "tono": "scuro"
                   },
                   "blocks": {
                     "riga_1": {
-                      "type": "_relis-spec-row",
+                      "type": "_relis-elenco-riga",
                       "settings": {
-                        "label": "Scomparto principale",
-                        "value": "Due cambi completi, una giacca"
+                        "testo": "Scomparto laptop imbottito"
                       }
                     },
                     "riga_2": {
-                      "type": "_relis-spec-row",
+                      "type": "_relis-elenco-riga",
                       "settings": {
-                        "label": "Tasca interna",
-                        "value": "Portatile 14 pollici"
+                        "testo": "Rituale, beauty case abbinato"
                       }
                     },
                     "riga_3": {
-                      "type": "_relis-spec-row",
+                      "type": "_relis-elenco-riga",
                       "settings": {
-                        "label": "Tasca esterna",
-                        "value": "Documenti, biglietti, chiavi"
+                        "testo": "Tasche elastiche interne"
                       }
                     },
                     "riga_4": {
-                      "type": "_relis-spec-row",
+                      "type": "_relis-elenco-riga",
                       "settings": {
-                        "label": "Fondo",
-                        "value": "Scarpe, o la pochette da bagno"
+                        "testo": "Passante per il trolley"
                       }
                     }
                   },
-                  "block_order": ["riga_1", "riga_2", "riga_3", "riga_4"]
-                },
-                "nota": {
-                  "type": "text",
-                  "name": "Nota",
-                  "settings": {
-                    "text": "<p>Capacita dichiarata 42 litri, provvisoria: il prototipo non e ancora misurato.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h5",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "#6b6259",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 16,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
+                  "block_order": [
+                    "riga_1",
+                    "riga_2",
+                    "riga_3",
+                    "riga_4"
+                  ]
                 }
               },
-              "block_order": ["eyebrow", "titolo", "specifiche", "nota"]
+              "block_order": [
+                "timbro",
+                "titolo",
+                "corpo",
+                "elenco"
+              ]
             }
           },
-          "block_order": ["scatto", "testo"]
+          "block_order": [
+            "scatto",
+            "testo"
+          ]
         }
       },
-      "block_order": ["riga"],
-      "name": "Cosa ci sta dentro",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 0,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#e7dfce",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "solid",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "#ddd3c0",
-        "border_radius": 0,
-        "padding-block-start": 96,
-        "padding-block-end": 96
-      }
-    },
-    "prove": {
-      "type": "section",
-      "blocks": {
-        "riga": {
-          "type": "group",
-          "name": "Riga",
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-start",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 48,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "intestazione": {
-              "type": "group",
-              "name": "Intestazione",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "flex-start",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "flex-start",
-                "gap": 12,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "eyebrow": {
-                  "type": "text",
-                  "name": "Eyebrow",
-                  "settings": {
-                    "text": "<p>Sei tester — tre mesi</p>",
-                    "width": "fit-content",
-                    "max_width": "none",
-                    "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-subheading--family)",
-                    "font_size": "",
-                    "line_height": "tight",
-                    "letter_spacing": "loose",
-                    "case": "uppercase",
-                    "wrap": "pretty",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "titolo": {
-                  "type": "text",
-                  "name": "Titolo",
-                  "settings": {
-                    "text": "<p>Le prime prove</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-heading--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": ["eyebrow", "titolo"]
-            },
-            "messaggio": {
-              "type": "relis-message",
-              "name": "In attesa",
-              "settings": {
-                "tone": "neutral",
-                "label": "In attesa",
-                "text": "<p>Le recensioni compaiono qui dopo il lancio. Non ne scriviamo noi, e non ne inventiamo: finche non ci sono, questo spazio resta vuoto.</p>"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": ["intestazione", "messaggio"]
-        }
-      },
-      "block_order": ["riga"],
-      "name": "Le prime prove",
+      "block_order": [
+        "riga"
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -1096,12 +586,14 @@
         "border_width": 1,
         "border_opacity": 100,
         "border_radius": 0,
-        "padding-block-start": 96,
-        "padding-block-end": 96
+        "padding-block-start": 100,
+        "padding-block-end": 100,
+        "background_color": "#4b2e27"
       }
     },
-    "concia": {
+    "misure": {
       "type": "section",
+      "name": "Le misure",
       "blocks": {
         "riga": {
           "type": "group",
@@ -1114,6 +606,127 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
+            "gap": 24,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "misure": {
+              "type": "text",
+              "name": "Misure",
+              "settings": {
+                "text": "<p>44 × 32 × 18,5 cm · 26 L · CABINA</p>",
+                "width": "fit-content",
+                "max_width": "none",
+                "alignment": "left",
+                "font_size": "2rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "type_preset": "custom",
+                "font": "var(--font-accent--family)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "text_color": "#f1eee9"
+              },
+              "blocks": {}
+            },
+            "link": {
+              "type": "text",
+              "name": "Collegamento",
+              "settings": {
+                "text": "<p><a href=\"/collections/all\" title=\"Le misure, compagnia per compagnia\">Le misure, compagnia per compagnia</a></p>",
+                "width": "fit-content",
+                "max_width": "none",
+                "alignment": "left",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "text_color": "#f1eee9"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "misure",
+            "link"
+          ]
+        }
+      },
+      "block_order": [
+        "riga"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "padding-block-start": 72,
+        "padding-block-end": 72,
+        "background_color": "#1c1411"
+      }
+    },
+    "fuori": {
+      "type": "section",
+      "name": "Fuori",
+      "blocks": {
+        "riga": {
+          "type": "group",
+          "name": "Riga",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 64,
             "width": "fill",
             "custom_width": 100,
@@ -1165,29 +778,29 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "eyebrow": {
+                "timbro": {
                   "type": "text",
-                  "name": "Eyebrow",
+                  "name": "Timbro",
                   "settings": {
-                    "text": "<p>Concia vegetale — Toscana</p>",
-                    "width": "fit-content",
+                    "text": "<p>Fuori · Milano, flash</p>",
+                    "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-subheading--family)",
                     "font_size": "",
-                    "line_height": "tight",
-                    "letter_spacing": "loose",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
                     "case": "uppercase",
                     "wrap": "pretty",
-                    "text_color": "#b79e88",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
+                    "type_preset": "h6",
+                    "font": "var(--font-accent--family)",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "text_color": "#4b2e27"
                   },
                   "blocks": {}
                 },
@@ -1195,38 +808,67 @@
                   "type": "text",
                   "name": "Titolo",
                   "settings": {
-                    "text": "<p>Il colore si scurisce con l'uso, in modo irregolare: e previsto</p>",
+                    "text": "<h2>Tutto quello che serve, per due notti.</h2>",
                     "width": "100%",
                     "max_width": "narrow",
                     "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-heading--family)",
                     "font_size": "",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
-                    "text_color": "#f1eadc",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "type_preset": "h2",
+                    "font": "var(--font-heading--family)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 8,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "corpo": {
+                  "type": "text",
+                  "name": "Corpo",
+                  "settings": {
+                    "text": "<p>Due outfit, il laptop, Rituale e i documenti. Sotto il sedile, senza supplemento al gate.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#3a2a24"
+                  },
+                  "blocks": {}
                 }
               },
-              "block_order": ["eyebrow", "titolo"]
+              "block_order": [
+                "timbro",
+                "titolo",
+                "corpo"
+              ]
             },
             "scatto": {
               "type": "image",
-              "name": "Modella",
+              "name": "Milano, flash",
               "settings": {
                 "image_ratio": "portrait",
                 "width": "custom",
-                "custom_width": 40,
+                "custom_width": 42,
                 "width_mobile": "fill",
                 "custom_width_mobile": 100,
                 "height": "fit",
@@ -1242,11 +884,15 @@
               "blocks": {}
             }
           },
-          "block_order": ["testo", "scatto"]
+          "block_order": [
+            "testo",
+            "scatto"
+          ]
         }
       },
-      "block_order": ["riga"],
-      "name": "Concia vegetale",
+      "block_order": [
+        "riga"
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -1260,73 +906,217 @@
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "#241a15",
         "video_position": "cover",
         "background_image_position": "cover",
         "border": "none",
         "border_width": 1,
         "border_opacity": 100,
         "border_radius": 0,
-        "padding-block-start": 96,
-        "padding-block-end": 96
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
-    "iscrizione": {
+    "regali": {
       "type": "section",
+      "name": "Regali",
       "blocks": {
-        "eyebrow": {
-          "type": "text",
-          "name": "Eyebrow",
+        "riga": {
+          "type": "group",
+          "name": "Riga",
           "settings": {
-            "text": "<p>Scriviamo di rado</p>",
-            "width": "fit-content",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "h6",
-            "font": "var(--font-subheading--family)",
-            "font_size": "",
-            "line_height": "tight",
-            "letter_spacing": "loose",
-            "case": "uppercase",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "modulo": {
-          "type": "email-signup",
-          "name": "Iscrizione",
-          "settings": {
-            "width": "custom",
-            "custom_width": 60,
-            "heading": "Ti avvisiamo quando esce una colorazione nuova. E basta.",
-            "heading_preset": "h2",
-            "border_style": "underline",
-            "input_style": "default",
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 56,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
             "border_width": 1,
+            "border_opacity": 100,
             "border_radius": 0,
-            "input_type_preset": "paragraph",
-            "style_class": "button-secondary",
-            "display_type": "text",
-            "label": "Iscriviti",
-            "integrated_button": false,
-            "button_type_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {}
+          "blocks": {
+            "testo": {
+              "type": "group",
+              "name": "Testo",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "timbro": {
+                  "type": "text",
+                  "name": "Timbro",
+                  "settings": {
+                    "text": "<p>Il set · 99 € invece di 108 €</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "h6",
+                    "font": "var(--font-accent--family)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#1c1411"
+                  },
+                  "blocks": {}
+                },
+                "titolo": {
+                  "type": "text",
+                  "name": "Titolo",
+                  "settings": {
+                    "text": "<h2>Un regalo che non sbaglia misura.</h2>",
+                    "width": "100%",
+                    "max_width": "narrow",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "h2",
+                    "font": "var(--font-heading--family)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#1c1411"
+                  },
+                  "blocks": {}
+                },
+                "corpo": {
+                  "type": "text",
+                  "name": "Corpo",
+                  "settings": {
+                    "text": "<p>Fuga 26 e Rituale insieme, nei due colori incrociati. Confezione regalo inclusa e spedizione gratuita.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 20,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#1c1411"
+                  },
+                  "blocks": {}
+                },
+                "azione": {
+                  "type": "button",
+                  "name": "Scopri il set",
+                  "settings": {
+                    "label": "Scopri il set",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button-custom",
+                    "custom_button_background": "#1c1411",
+                    "custom_button_text": "#f1eee9",
+                    "custom_button_border": "#1c1411",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "timbro",
+                "titolo",
+                "corpo",
+                "azione"
+              ]
+            },
+            "scatto": {
+              "type": "image",
+              "name": "Il set",
+              "settings": {
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "testo",
+            "scatto"
+          ]
         }
       },
-      "block_order": ["eyebrow", "modulo"],
-      "name": "Iscrizione",
+      "block_order": [
+        "riga"
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -1335,33 +1125,29 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 24,
+        "gap": 0,
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "#e7dfce",
         "video_position": "cover",
         "background_image_position": "cover",
-        "border": "solid",
+        "border": "none",
         "border_width": 1,
         "border_opacity": 100,
-        "border_color": "#ddd3c0",
         "border_radius": 0,
-        "padding-block-start": 96,
-        "padding-block-end": 96
+        "padding-block-start": 100,
+        "padding-block-end": 100,
+        "background_color": "#7d93ae"
       }
     }
   },
   "order": [
-    "apertura",
-    "una_borsa_sola",
-    "colorazioni",
-    "nota_prezzo",
-    "editoriale",
+    "copertina",
+    "collezione",
     "dentro",
-    "prove",
-    "concia",
-    "iscrizione"
+    "misure",
+    "fuori",
+    "regali"
   ]
 }

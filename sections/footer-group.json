@@ -8,17 +8,22 @@
  * ------------------------------------------------------------
  *
  * relis — piede.
- * Fondo beige alternato, filetto in alto, quattro colonne: il logotipo
- * con una riga di presentazione, poi Negozio, Aiuto, Legali.
+ * La striscia a righe, poi il piede su inchiostro: logotipo e una riga
+ * di presentazione, poi Negozio, Aiuto, Legali.
  *
  * I tre menu vanno creati in Negozio online > Menu di navigazione e
- * collegati qui: footer-negozio, footer-aiuto, footer-legali.
+ * collegati qui dall'editor: footer-negozio, footer-aiuto, footer-legali.
+ * Finche non esistono, le tre colonne mostrano il menu "footer".
  * ------------------------------------------------------------
  */
 {
   "type": "footer",
   "name": "t:names.footer",
   "sections": {
+    "striscia": {
+      "type": "relis-striscia",
+      "settings": {}
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -32,7 +37,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 12,
+            "gap": 14,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -64,8 +69,8 @@
               "name": "Logotipo",
               "settings": {
                 "text": "relis",
-                "size": 26,
-                "color": "#241a15",
+                "size": 30,
+                "color": "#f1eee9",
                 "link": "/"
               },
               "blocks": {}
@@ -74,18 +79,18 @@
               "type": "text",
               "name": "Presentazione",
               "settings": {
-                "text": "<p>Relis 42. Una borsa sola, fatta bene, in tre colorazioni. Da viaggio e da tutti i giorni.</p>",
+                "text": "<p>Fuga 26 e Rituale. Due pezzi, due colori, un solo interno. Calda, elegante, organizzata, italiana.</p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
-                "type_preset": "h5",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "",
+                "font_size": "0.875rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "text_color": "#5c5149",
+                "text_color": "#d9c9bf",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -108,9 +113,9 @@
             "show_as_accordion": false,
             "accordion_icon": "plus",
             "accordion_dividers": false,
-            "text_color": "#5c5149",
+            "text_color": "#f1eee9",
             "heading_preset": "h6",
-            "link_preset": "h5",
+            "link_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -127,9 +132,9 @@
             "show_as_accordion": false,
             "accordion_icon": "plus",
             "accordion_dividers": false,
-            "text_color": "#5c5149",
+            "text_color": "#f1eee9",
             "heading_preset": "h6",
-            "link_preset": "h5",
+            "link_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -138,91 +143,34 @@
           "blocks": {}
         },
         "menu_legali": {
-          "type": "group",
+          "type": "menu",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-start",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 10,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
+            "menu": "footer",
+            "heading": "Legali",
+            "menu_spacing": 10,
+            "show_as_accordion": false,
+            "accordion_icon": "plus",
+            "accordion_dividers": false,
+            "text_color": "#f1eee9",
+            "heading_preset": "h6",
+            "link_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {
-            "etichetta": {
-              "type": "text",
-              "name": "Etichetta",
-              "settings": {
-                "text": "<p>Legali</p>",
-                "width": "fit-content",
-                "max_width": "none",
-                "alignment": "left",
-                "type_preset": "h6",
-                "font": "var(--font-subheading--family)",
-                "font_size": "",
-                "line_height": "tight",
-                "letter_spacing": "loose",
-                "case": "uppercase",
-                "wrap": "pretty",
-                "text_color": "#6b6259",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 2,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "politiche": {
-              "type": "footer-policy-list",
-              "name": "Politiche",
-              "settings": {
-                "text_color": "#5c5149",
-                "font_size": "0.75rem",
-                "case": "uppercase"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": ["etichetta", "politiche"]
+          "blocks": {}
         }
       },
       "block_order": ["marchio", "menu_negozio", "menu_aiuto", "menu_legali"],
       "settings": {
         "section_width": "page-width",
-        "gap": 44,
-        "background_color": "#e7dfce",
-        "padding-block-start": 48,
-        "padding-block-end": 36
+        "gap": 56,
+        "background_color": "#1c1411",
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     }
   },
-  "order": ["footer"]
+  "order": ["striscia", "footer"]
 }

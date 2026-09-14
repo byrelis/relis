@@ -1,77 +1,49 @@
 {% doc %}
-  Tabella specifiche relis.
+  Tabella misure relis — Dove vola.
 
-  Una lista di descrizione: etichetta a sinistra, valore a destra, un
-  filetto fra le righe. I numeri sono tabular, cosi le cifre incolonnano.
-
-  I dati mancanti si dichiarano con un trattino lungo — mai 0,00, mai un
-  numero verosimile messo li per riempire. La Relis 42 e un prototipo:
-  misure, capacita, peso e prezzo non sono ancora decisi.
+  Una lista di descrizione: compagnia, misura consentita, e sotto cosa
+  significa per Fuga 26. I numeri sono tabular, cosi incolonnano.
 {% enddoc %}
 
-<dl
-  class="rl-specs{% if block.settings.width == 'fill' %} rl-specs--fill{% endif %}"
-  {{ block.shopify_attributes }}
->
+<dl class="rl-specs" {{ block.shopify_attributes }}>
   {% content_for 'blocks' %}
 </dl>
 
-{% stylesheet %}
-  .rl-specs--fill {
-    max-width: none;
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
-  "name": "Specifiche",
+  "name": "Tabella misure",
   "tag": null,
   "blocks": [
     {
       "type": "_relis-spec-row"
     }
   ],
-  "settings": [
-    {
-      "type": "select",
-      "id": "width",
-      "label": "Larghezza",
-      "options": [
-        {
-          "value": "normal",
-          "label": "Colonna di lettura"
-        },
-        {
-          "value": "fill",
-          "label": "Riempi"
-        }
-      ],
-      "default": "normal"
-    }
-  ],
   "presets": [
     {
-      "name": "Specifiche",
+      "name": "Tabella misure",
       "blocks": {
         "riga-1": {
           "type": "_relis-spec-row",
           "settings": {
-            "label": "Dimensioni",
-            "value": "—"
+            "label": "easyJet",
+            "value": "45 × 36 × 20",
+            "nota": "Gratis sotto il sedile"
           }
         },
         "riga-2": {
           "type": "_relis-spec-row",
           "settings": {
-            "label": "Capacita",
-            "value": "—"
+            "label": "ITA Airways",
+            "value": "55 × 40 × 23",
+            "nota": "Inclusa"
           }
         },
         "riga-3": {
           "type": "_relis-spec-row",
           "settings": {
-            "label": "Peso",
-            "value": "—"
+            "label": "Lufthansa",
+            "value": "55 × 40 × 23",
+            "nota": "Inclusa"
           }
         }
       },

@@ -1,0 +1,650 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ *
+ * relis — pagina Fuga 26.
+ * Da Fuga-26.dc.html. E un template alternativo e non product.json:
+ * «Dove vola» e la sezione Rituale parlano di Fuga 26 e non hanno senso
+ * su Rituale o sul set. Si assegna al prodotto dall'admin, in
+ * Prodotto > Modello tema.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "name": "Fuga 26",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "one",
+            "image_gap": 12,
+            "large_first_image": false,
+            "icons_style": "arrow",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 72,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "1/1.25",
+            "constrain_to_viewport": false,
+            "media_fit": "cover",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 0,
+            "sticky_details_desktop": false,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "timbro": {
+              "type": "text",
+              "name": "Timbro",
+              "settings": {
+                "text": "<p>{{ closest.product.title }}</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "type_preset": "h6",
+                "font": "var(--font-accent--family)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "text_color": "#4b2e27"
+              },
+              "blocks": {}
+            },
+            "titolo": {
+              "type": "product-title",
+              "name": "Titolo",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h1",
+                "font": "var(--font-heading--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 10,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "sottotitolo": {
+              "type": "custom-liquid",
+              "name": "Sottotitolo",
+              "settings": {
+                "custom_liquid": "{%- if closest.product.metafields.custom.sottotitolo != blank -%}<p class=\"rl-pdp-sottotitolo\">{{ closest.product.metafields.custom.sottotitolo }}</p>{%- endif -%}"
+              },
+              "blocks": {}
+            },
+            "misure": {
+              "type": "custom-liquid",
+              "name": "Misure",
+              "settings": {
+                "custom_liquid": "{%- if closest.product.metafields.custom.misure != blank -%}<p class=\"rl-pdp-misure\">{{ closest.product.metafields.custom.misure }}</p>{%- endif -%}"
+              },
+              "blocks": {}
+            },
+            "prezzo": {
+              "type": "price",
+              "name": "Prezzo",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "custom",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-accent--family)",
+                "font_size": "1.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 28,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "colorazione": {
+              "type": "variant-picker",
+              "name": "Colorazione",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": true,
+                "variant_style_class": "default",
+                "selected_variant_style_class": "default",
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 28,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "acquisto": {
+              "type": "buy-buttons",
+              "name": "Acquisto",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": false,
+                "border_width": 1,
+                "border_radius": 50,
+                "padding-block-start": 0,
+                "padding-block-end": 12,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {
+                    "input_style": "default",
+                    "border_width": 1,
+                    "border_radius": 50
+                  },
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "set": {
+              "type": "button",
+              "name": "Aggiungi il set",
+              "settings": {
+                "label": "Aggiungi Rituale · set da 99 €",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button-secondary",
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "custom",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
+            "elenco": {
+              "type": "relis-elenco",
+              "name": "Dentro Fuga 26",
+              "settings": {
+                "tono": "chiaro"
+              },
+              "blocks": {
+                "riga_1": {
+                  "type": "_relis-elenco-riga",
+                  "settings": {
+                    "testo": "Scomparto laptop imbottito"
+                  }
+                },
+                "riga_2": {
+                  "type": "_relis-elenco-riga",
+                  "settings": {
+                    "testo": "Rituale, beauty case abbinato"
+                  }
+                },
+                "riga_3": {
+                  "type": "_relis-elenco-riga",
+                  "settings": {
+                    "testo": "Tasche elastiche interne"
+                  }
+                },
+                "riga_4": {
+                  "type": "_relis-elenco-riga",
+                  "settings": {
+                    "testo": "Passante per il trolley"
+                  }
+                }
+              },
+              "block_order": [
+                "riga_1",
+                "riga_2",
+                "riga_3",
+                "riga_4"
+              ]
+            },
+            "dove_vola": {
+              "type": "text",
+              "name": "Dove vola",
+              "settings": {
+                "text": "<h2>Dove vola</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "type_preset": "h3",
+                "font": "var(--font-heading--family)",
+                "padding-block-start": 34,
+                "padding-block-end": 16,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "tabella": {
+              "type": "relis-specs",
+              "name": "Misure per compagnia",
+              "settings": {},
+              "blocks": {
+                "easyjet": {
+                  "type": "_relis-spec-row",
+                  "settings": {
+                    "label": "easyJet",
+                    "value": "45 × 36 × 20",
+                    "nota": "Gratis sotto il sedile"
+                  }
+                },
+                "ita": {
+                  "type": "_relis-spec-row",
+                  "settings": {
+                    "label": "ITA Airways",
+                    "value": "55 × 40 × 23",
+                    "nota": "Inclusa"
+                  }
+                },
+                "lufthansa": {
+                  "type": "_relis-spec-row",
+                  "settings": {
+                    "label": "Lufthansa",
+                    "value": "55 × 40 × 23",
+                    "nota": "Inclusa"
+                  }
+                }
+              },
+              "block_order": [
+                "easyjet",
+                "ita",
+                "lufthansa"
+              ]
+            },
+            "nota_misure": {
+              "type": "text",
+              "name": "Nota",
+              "settings": {
+                "text": "<p>Misure del bagaglio a mano consentito dalla compagnia, in centimetri. Fuga 26 misura 44 × 32 × 18,5 cm.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "font_size": "0.875rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "padding-block-start": 16,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "text_color": "#4b2e27"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "timbro",
+            "titolo",
+            "sottotitolo",
+            "misure",
+            "prezzo",
+            "colorazione",
+            "acquisto",
+            "set",
+            "elenco",
+            "dove_vola",
+            "tabella",
+            "nota_misure"
+          ]
+        }
+      },
+      "block_order": [],
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": true,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "padding-block-start": 44,
+        "padding-block-end": 96
+      }
+    },
+    "rituale": {
+      "type": "section",
+      "name": "Rituale e set",
+      "blocks": {
+        "riga": {
+          "type": "group",
+          "name": "Riga",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 64,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "testo": {
+              "type": "group",
+              "name": "Testo",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "timbro": {
+                  "type": "text",
+                  "name": "Timbro",
+                  "settings": {
+                    "text": "<p>Rituale · 29 € · il set 99 €</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "h6",
+                    "font": "var(--font-accent--family)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#d9c9bf"
+                  },
+                  "blocks": {}
+                },
+                "titolo": {
+                  "type": "text",
+                  "name": "Titolo",
+                  "settings": {
+                    "text": "<h2>Le tue cose, sempre allo stesso posto.</h2>",
+                    "width": "100%",
+                    "max_width": "narrow",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "h2",
+                    "font": "var(--font-heading--family)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#f1eee9"
+                  },
+                  "blocks": {}
+                },
+                "corpo": {
+                  "type": "text",
+                  "name": "Corpo",
+                  "settings": {
+                    "text": "<p>Beauty case morbido, zip in alto, linguetta sul fronte e laccetto annodato. Sta dentro Fuga 26, e l'incrocio dei colori lo fa lui: azzurro nella borsa marrone, marrone nella borsa azzurra.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#ede1d8"
+                  },
+                  "blocks": {}
+                },
+                "misure": {
+                  "type": "text",
+                  "name": "Misure",
+                  "settings": {
+                    "text": "<p>27 × 9 × 22 cm · confezione singola</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "type_preset": "h5",
+                    "font": "var(--font-accent--family)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 18,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "text_color": "#d9c9bf"
+                  },
+                  "blocks": {}
+                },
+                "azione": {
+                  "type": "button",
+                  "name": "Aggiungi il set",
+                  "settings": {
+                    "label": "Aggiungi il set · 99 €",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button-custom",
+                    "custom_button_background": "#f1eee9",
+                    "custom_button_text": "#1c1411",
+                    "custom_button_border": "#f1eee9",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "timbro",
+                "titolo",
+                "corpo",
+                "misure",
+                "azione"
+              ]
+            },
+            "scatto": {
+              "type": "image",
+              "name": "Il set",
+              "settings": {
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "testo",
+            "scatto"
+          ]
+        }
+      },
+      "block_order": [
+        "riga"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "padding-block-start": 100,
+        "padding-block-end": 100,
+        "background_color": "#4b2e27"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rituale"
+  ]
+}
